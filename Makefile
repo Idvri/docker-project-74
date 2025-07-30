@@ -1,8 +1,8 @@
 build:
 	docker compose -f docker-compose.yml build app
 
-tests:
-	docker compose -f docker-compose.yml up app
+test:
+	docker run nodar126/app make test
 
 push:
 	docker compose -f docker-compose.yml push app
@@ -10,5 +10,5 @@ push:
 update_app:
 	docker pull nodar126/app:latest
 
-check_app:
+start_app:
 	docker run -p 8080:8080 -e NODE_ENV=development nodar126/app:latest make dev

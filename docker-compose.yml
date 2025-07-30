@@ -3,5 +3,4 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.production
-    command: make test
     image: nodar126/app:latest

@@ -16,5 +16,5 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - run: make build
-      - run: make tests
+      - run: make test
       - run: make push
