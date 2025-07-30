@@ -2,6 +2,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.production
     volumes:
       - "./app:/app"
+    image: nodar126/app:latest
