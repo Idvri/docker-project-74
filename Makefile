@@ -1,6 +1,14 @@
+build:
+	docker compose -f docker-compose.yml build app
+
 tests:
-	docker compose -f docker-compose.yml up --abort-on-container-exit app
-production:
-	docker compose build app
+	docker compose -f docker-compose.yml up app
+
 push:
-	docker compose push app
+	docker compose -f docker-compose.yml push app
+
+update_app:
+	docker pull nodar126/app:latest
+
+check_app:
+	docker run -p 8080:8080 -e NODE_ENV=development nodar126/app:latest make dev

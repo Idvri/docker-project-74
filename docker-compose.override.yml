@@ -3,9 +3,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    command: make dev
     volumes:
       - "./app:/app"
-    ports:
-      - "80:8080"
-    command: make dev
-    image: nodar126/app:latest
