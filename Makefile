@@ -3,4 +3,4 @@ tests:
 production:
 	docker compose build app
 push:
-	docker compose -f push app
+	docker compose push app
