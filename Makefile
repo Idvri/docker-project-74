@@ -2,7 +2,7 @@ build:
 	docker compose -f docker-compose.yml build app
 
 test:
-	docker run nodar126/app make test
+	docker compose -f docker-compose.yml run app make test
 
 push:
 	docker compose -f docker-compose.yml push app

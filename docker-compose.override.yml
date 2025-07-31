@@ -1,4 +1,5 @@
 services:
+
   app:
     build:
       context: .
@@ -6,3 +7,22 @@ services:
     command: make dev
     volumes:
       - "./app:/app"
+
+  caddy:
+    image: caddy:latest
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - $PWD/services/caddy:/etc/caddy
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - app
+
+volumes:
+  caddy_data:
+  caddy_config:
