@@ -1,13 +1,17 @@
 push_flow: build test push
 
 build:
-	ENV_FILE=env.example docker compose -f docker-compose.yml build
+	cp .env.example .env
+	docker compose -f docker-compose.yml build
 
 test:
-	docker compose run -d db
-	sleep 10
-	docker compose -f docker-compose.yml run app make test
-	docker compose stop db
+	cp .env.example .env
+	docker compose -f docker-compose.yml up db -d
+	sleep 5
+	docker compose stop
+	docker compose -f docker-compose.yml up -d
+	docker compose exec app make test
+	docker compose stop
 
 push:
 	docker compose -f docker-compose.yml push app
