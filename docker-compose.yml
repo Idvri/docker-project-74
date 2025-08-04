@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile.production
     image: nodar126/app:latest
     env_file:
-      - .env
+      - env.example
     depends_on:
       - db
 
