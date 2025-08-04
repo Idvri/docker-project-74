@@ -7,8 +7,6 @@ services:
     command: make dev
     volumes:
       - "./app:/app"
-    depends_on:
-      - db
 
   caddy:
     image: caddy:latest
